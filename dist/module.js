@@ -5,6 +5,27 @@ import {
 } from "react";
 import { Box3 as $aODKb$Box3, MathUtils as $aODKb$MathUtils } from "three";
 
+function $parcel$export(e, n, v, s) {
+  Object.defineProperty(e, n, {
+    get: v,
+    set: s,
+    enumerable: true,
+    configurable: true,
+  });
+}
+var $393673603234b845$exports = {};
+
+$parcel$export(
+  $393673603234b845$exports,
+  "useResizeHelper",
+  function () {
+    return $393673603234b845$export$bd0a946f6f3d2bb1;
+  },
+  function (v) {
+    return ($393673603234b845$export$bd0a946f6f3d2bb1 = v);
+  },
+);
+
 const $9c25e1fa1df40573$var$handleResize = (ref, options, camera) => {
   const _ref = ref;
   const _options = options;
@@ -166,8 +187,12 @@ const $9c25e1fa1df40573$export$bd0a946f6f3d2bb1 = (ref, options) => {
   return dimensions;
 };
 
-var $393673603234b845$export$2e2bcd8739ae039 =
+var $393673603234b845$export$bd0a946f6f3d2bb1;
+$393673603234b845$export$bd0a946f6f3d2bb1 =
   $9c25e1fa1df40573$export$bd0a946f6f3d2bb1;
 
-export { $393673603234b845$export$2e2bcd8739ae039 as default };
+export {
+  $393673603234b845$export$bd0a946f6f3d2bb1 as useResizeHelper,
+  $393673603234b845$exports as default,
+};
 //# sourceMappingURL=module.js.map

@@ -3,9 +3,6 @@ var $7Db8t$reactthreefiber = require("@react-three/fiber");
 var $7Db8t$react = require("react");
 var $7Db8t$three = require("three");
 
-function $parcel$defineInteropFlag(a) {
-  Object.defineProperty(a, "__esModule", { value: true, configurable: true });
-}
 function $parcel$export(e, n, v, s) {
   Object.defineProperty(e, n, {
     get: v,
@@ -15,11 +12,16 @@ function $parcel$export(e, n, v, s) {
   });
 }
 
-$parcel$defineInteropFlag(module.exports);
-
-$parcel$export(module.exports, "default", function () {
-  return $52fb57f2dc126ad4$export$2e2bcd8739ae039;
-});
+$parcel$export(
+  module.exports,
+  "useResizeHelper",
+  function () {
+    return $52fb57f2dc126ad4$export$bd0a946f6f3d2bb1;
+  },
+  function (v) {
+    return ($52fb57f2dc126ad4$export$bd0a946f6f3d2bb1 = v);
+  },
+);
 
 var $b7719124d414b576$var$handleResize = function (ref, options, camera) {
   var _ref = ref;
@@ -185,7 +187,8 @@ var $b7719124d414b576$export$bd0a946f6f3d2bb1 = function (ref, options) {
   return dimensions;
 };
 
-var $52fb57f2dc126ad4$export$2e2bcd8739ae039 =
+var $52fb57f2dc126ad4$export$bd0a946f6f3d2bb1;
+$52fb57f2dc126ad4$export$bd0a946f6f3d2bb1 =
   $b7719124d414b576$export$bd0a946f6f3d2bb1;
 
 //# sourceMappingURL=main.js.map
