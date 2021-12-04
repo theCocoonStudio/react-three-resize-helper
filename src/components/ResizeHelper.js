@@ -1,4 +1,3 @@
-import { useThree } from "@react-three/fiber";
 import { useEffect, useState } from "react";
 import { Box3, MathUtils } from "three";
 
@@ -164,8 +163,7 @@ const handleResize = (ref, options, camera) => {
   return _returned;
 };
 
-export const useResizeHelper = (ref, options) => {
-  const { camera } = useThree();
+export const useResizeHelper = (ref, camera, options) => {
   let [dimensions, setDimensions] = useState(null);
 
   useEffect(() => {
