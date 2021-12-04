@@ -26,7 +26,6 @@ $parcel$export(
 );
 
 const $9c25e1fa1df40573$var$handleResize = (ref, options, camera) => {
-  console.log(options);
   const _ref = ref;
   const _options = options;
   const _camera = camera;

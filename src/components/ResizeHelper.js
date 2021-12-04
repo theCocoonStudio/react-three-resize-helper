@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Box3, MathUtils } from "three";
 
 const handleResize = (ref, options, camera) => {
-  console.log(options);
   const _ref = ref;
   const _options = options;
   const _camera = camera;
