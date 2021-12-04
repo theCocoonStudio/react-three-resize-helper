@@ -1,4 +1,3 @@
-import { useThree as $aODKb$useThree } from "@react-three/fiber";
 import {
   useState as $aODKb$useState,
   useEffect as $aODKb$useEffect,
@@ -27,6 +26,7 @@ $parcel$export(
 );
 
 const $9c25e1fa1df40573$var$handleResize = (ref, options, camera) => {
+  console.log(options);
   const _ref = ref;
   const _options = options;
   const _camera = camera;
@@ -178,8 +178,7 @@ const $9c25e1fa1df40573$var$handleResize = (ref, options, camera) => {
   }
   return _returned;
 };
-const $9c25e1fa1df40573$export$bd0a946f6f3d2bb1 = (ref, options) => {
-  const { camera: camera } = $aODKb$useThree();
+const $9c25e1fa1df40573$export$bd0a946f6f3d2bb1 = (ref, camera, options) => {
   let [dimensions, setDimensions] = $aODKb$useState(null);
   $aODKb$useEffect(() => {
     setDimensions($9c25e1fa1df40573$var$handleResize(ref, options, camera));

@@ -1,5 +1,4 @@
 var $7Db8t$swchelpers = require("@swc/helpers");
-var $7Db8t$reactthreefiber = require("@react-three/fiber");
 var $7Db8t$react = require("react");
 var $7Db8t$three = require("three");
 
@@ -24,6 +23,7 @@ $parcel$export(
 );
 
 var $b7719124d414b576$var$handleResize = function (ref, options, camera) {
+  console.log(options);
   var _ref = ref;
   var _options = options;
   var _camera = camera;
@@ -173,8 +173,11 @@ var $b7719124d414b576$var$handleResize = function (ref, options, camera) {
   }
   return _returned;
 };
-var $b7719124d414b576$export$bd0a946f6f3d2bb1 = function (ref, options) {
-  var camera = $7Db8t$reactthreefiber.useThree().camera;
+var $b7719124d414b576$export$bd0a946f6f3d2bb1 = function (
+  ref,
+  camera,
+  options,
+) {
   var ref1 = $7Db8t$swchelpers.slicedToArray($7Db8t$react.useState(null), 2),
     dimensions = ref1[0],
     setDimensions = ref1[1];
