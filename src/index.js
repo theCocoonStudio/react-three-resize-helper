@@ -1,3 +1,3 @@
-import { useResizeHelper } from "./components/ResizeHelper";
+import { useResizeHelper as toExport } from "./components/ResizeHelper";
 
-export default useResizeHelper;
+export const useResizeHelper = toExport;
