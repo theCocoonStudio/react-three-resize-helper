@@ -163,7 +163,7 @@ const handleResize = (ref, options, camera) => {
   return _returned;
 };
 
-export const useResizeHelper = (ref, camera, options) => {
+export const useResizeHelper = (ref, camera, options = {}) => {
   let [dimensions, setDimensions] = useState(null);
 
   useEffect(() => {
