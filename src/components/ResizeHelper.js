@@ -168,7 +168,7 @@ export const useResizeHelper = (ref, camera, options) => {
 
   useEffect(() => {
     setDimensions(handleResize(ref, options, camera));
-  }, [camera.aspect, ref]);
+  }, [camera.aspect, ref, options, camera, ref.current]);
 
   return dimensions;
 };
