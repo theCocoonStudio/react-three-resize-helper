@@ -19,8 +19,9 @@ const handleResize = (ref, options, camera) => {
     visWidth: _width,
     visHeight: _height,
   };
+  // end calculation
 
-  const { _aspect } = _camera;
+  const _aspect = _camera.aspect;
   if (_options) {
     let { breakpoints, positions, rotations, scales, fovs, camZs, useMin } =
       _options;
@@ -68,26 +69,18 @@ const handleResize = (ref, options, camera) => {
         46,
       );
     }
-    /*insert current _aspect in the sorted breakpoint array*/
+    // end validation
+    /*insert current _aspect in the sorted breakpoint array and sort*/
     breakpoints.push(_aspect);
     breakpoints.sort();
     const index = breakpoints.indexOf(_aspect);
 
-    /* find the array index for the changes to implement */
-    let actionIndex;
-    //if usemin, if index is 0, _aspect is below lowest min breakpoint
-    if (useMin && index > 0) {
-      //apply changes at index - 1 breakpoint unless current _aspect is equal to next breakpoint, in which case we must apply changes at index.
-      // e.g. [1, 2, _aspect = 2.5, 2.5, 3]
+    /* find the array index for the changes to implement. Enforce correct breakpoints if aspect exactly matches a breakpoint */
+    let actionIndex = index;
+    /*if usemin, if index is not last, check if entry is not equal to the next entry; if it is you have to use index + 1*/
+    if (useMin && index != breakpoints.length - 1) {
       actionIndex =
-        breakpoints[index] === breakpoints[index + 1] ? index : index - 1;
-      //if !usemin, if index is last, _aspect is above highest max breakpoint
-    } else if (!useMin && index < breakpoints.length - 1) {
-      //apply changes at index breakpoint (not index + 1 as we pushed an element to the original array) unless current _aspect is equal to previous breakpoint, in which case we must apply the changes at index - 1
-      // e.g. [1, 2, 2.5, _aspect = 2.5, 3]
-      // shouldn't happen to due Array.indexOf() implementation returning first matching index
-      actionIndex =
-        breakpoints[index] === breakpoints[index - 1] ? index - 1 : index;
+        breakpoints[index] === breakpoints[index + 1] ? index + 1 : index;
     }
 
     /* apply the changes */
@@ -168,7 +161,7 @@ export const useResizeHelper = (ref, camera, options) => {
 
   useEffect(() => {
     setDimensions(handleResize(ref, options, camera));
-  }, [camera.aspect, ref, options, camera, ref.current]);
+  }, [camera.aspect, ref, camera, ref.current]);
 
   return dimensions;
 };
