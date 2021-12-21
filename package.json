@@ -1,6 +1,6 @@
 {
   "name": "react-three-resize-helper",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "A React hook for responsive design with three.js and react-three-fiber",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -51,5 +51,7 @@
   "lint-staged": {
     "*.js": "eslint --cache --fix"
   },
-  "bin": {"develop": "./bin/cli.js"}
+  "bin": {
+    "develop": "./bin/cli.js"
+  }
 }
