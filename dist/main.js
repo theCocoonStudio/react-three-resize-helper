@@ -103,18 +103,10 @@ var $b7719124d414b576$var$handleResize = function (ref, options, camera) {
         breakpoints[index] === breakpoints[index + 1] ? index + 1 : index;
     /* apply the changes */ if (positions && positions[actionIndex]) {
       if (typeof positions[actionIndex] === "function") {
-        _ref.current.position.x = positions[actionIndex](
-          _returned,
-          _options.functionScope,
-        )[0];
-        _ref.current.position.y = positions[actionIndex](
-          _returned,
-          _options.functionScope,
-        )[1];
-        _ref.current.position.z = positions[actionIndex](
-          _returned,
-          _options.functionScope,
-        )[2];
+        var pos = positions[actionIndex](_returned, _options.functionScope);
+        _ref.current.position.x = pos[0];
+        _ref.current.position.y = pos[1];
+        _ref.current.position.z = pos[2];
       } else {
         if (
           typeof positions[actionIndex][0] != "undefined" &&
@@ -135,18 +127,10 @@ var $b7719124d414b576$var$handleResize = function (ref, options, camera) {
     }
     if (rotations && rotations[actionIndex]) {
       if (typeof rotations[actionIndex] === "function") {
-        _ref.current.rotation.x = rotations[actionIndex](
-          _returned,
-          _options.functionScope,
-        )[0];
-        _ref.current.rotation.y = rotations[actionIndex](
-          _returned,
-          _options.functionScope,
-        )[1];
-        _ref.current.rotation.z = rotations[actionIndex](
-          _returned,
-          _options.functionScope,
-        )[2];
+        var rot = rotations[actionIndex](_returned, _options.functionScope);
+        _ref.current.rotation.x = rot[0];
+        _ref.current.rotation.y = rot[1];
+        _ref.current.rotation.z = rot[2];
       } else {
         if (
           typeof rotations[actionIndex][0] != "undefined" &&
@@ -167,18 +151,10 @@ var $b7719124d414b576$var$handleResize = function (ref, options, camera) {
     }
     if (scales && scales[actionIndex]) {
       if (typeof scales[actionIndex] === "function") {
-        _ref.current.scale.x = scales[actionIndex](
-          _returned,
-          _options.functionScope,
-        )[0];
-        _ref.current.scale.y = scales[actionIndex](
-          _returned,
-          _options.functionScope,
-        )[1];
-        _ref.current.scale.z = scales[actionIndex](
-          _returned,
-          _options.functionScope,
-        )[2];
+        var sca = scales[actionIndex](_returned, _options.functionScope);
+        _ref.current.scale.x = sca[0];
+        _ref.current.scale.y = sca[1];
+        _ref.current.scale.z = sca[2];
       } else {
         if (
           typeof scales[actionIndex][0] != "undefined" &&

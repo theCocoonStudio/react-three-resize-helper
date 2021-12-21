@@ -79,7 +79,7 @@ You can use the hook to change objects of the scene at different aspect ratio br
 
 ```js
 const threeComponent = () => {
-  const options = { breakpoints: [1.5] };
+  const options = { breakpoints: [1.5], positions [[],[]] };
   const ref = React.usRef();
   const data = useResizeHelper(ref, camera, options);
   return (
