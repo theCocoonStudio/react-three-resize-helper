@@ -107,55 +107,100 @@ const $9c25e1fa1df40573$var$handleResize = (ref, options, camera) => {
       actionIndex =
         breakpoints[index] === breakpoints[index + 1] ? index + 1 : index;
     /* apply the changes */ if (positions && positions[actionIndex]) {
-      positions[actionIndex][0] &&
-        (_ref.current.position.x =
-          typeof positions[actionIndex][0] === "function"
-            ? positions[actionIndex][0](_returned, _options.functionScope)
-            : positions[actionIndex][0]);
-      positions[actionIndex][1] &&
-        (_ref.current.position.y =
-          typeof positions[actionIndex][1] === "function"
-            ? positions[actionIndex][1](_returned, _options.functionScope)
-            : positions[actionIndex][1]);
-      positions[actionIndex][2] &&
-        (_ref.current.position.z =
-          typeof positions[actionIndex][2] === "function"
-            ? positions[actionIndex][2](_returned, _options.functionScope)
-            : positions[actionIndex][2]);
+      if (typeof positions[actionIndex] === "function") {
+        _ref.current.position.x = positions[actionIndex](
+          _returned,
+          _options.functionScope,
+        )[0];
+        _ref.current.position.y = positions[actionIndex](
+          _returned,
+          _options.functionScope,
+        )[1];
+        _ref.current.position.z = positions[actionIndex](
+          _returned,
+          _options.functionScope,
+        )[2];
+      } else {
+        if (
+          typeof positions[actionIndex][0] != "undefined" &&
+          positions[actionIndex][0] != null
+        )
+          _ref.current.position.x = positions[actionIndex][0];
+        if (
+          typeof positions[actionIndex][1] != "undefined" &&
+          positions[actionIndex][1] != null
+        )
+          _ref.current.position.y = positions[actionIndex][0];
+        if (
+          typeof positions[actionIndex][2] != "undefined" &&
+          positions[actionIndex][2] != null
+        )
+          _ref.current.position.z = positions[actionIndex][0];
+      }
     }
     if (rotations && rotations[actionIndex]) {
-      rotations[actionIndex][0] &&
-        (_ref.current.position.x =
-          typeof rotations[actionIndex][0] === "function"
-            ? rotations[actionIndex][0](_returned, _options.functionScope)
-            : rotations[actionIndex][0]);
-      rotations[actionIndex][1] &&
-        (_ref.current.position.y =
-          typeof rotations[actionIndex][1] === "function"
-            ? rotations[actionIndex][1](_returned, _options.functionScope)
-            : rotations[actionIndex][1]);
-      rotations[actionIndex][2] &&
-        (_ref.current.position.z =
-          typeof rotations[actionIndex][2] === "function"
-            ? rotations[actionIndex][2](_returned, _options.functionScope)
-            : rotations[actionIndex][2]);
+      if (typeof rotations[actionIndex] === "function") {
+        _ref.current.rotation.x = rotations[actionIndex](
+          _returned,
+          _options.functionScope,
+        )[0];
+        _ref.current.rotation.y = rotations[actionIndex](
+          _returned,
+          _options.functionScope,
+        )[1];
+        _ref.current.rotation.z = rotations[actionIndex](
+          _returned,
+          _options.functionScope,
+        )[2];
+      } else {
+        if (
+          typeof rotations[actionIndex][0] != "undefined" &&
+          rotations[actionIndex][0] != null
+        )
+          _ref.current.rotation.x = rotations[actionIndex][0];
+        if (
+          typeof rotations[actionIndex][1] != "undefined" &&
+          rotations[actionIndex][1] != null
+        )
+          _ref.current.rotation.y = rotations[actionIndex][0];
+        if (
+          typeof rotations[actionIndex][2] != "undefined" &&
+          rotations[actionIndex][2] != null
+        )
+          _ref.current.rotation.z = rotations[actionIndex][0];
+      }
     }
     if (scales && scales[actionIndex]) {
-      scales[actionIndex][0] &&
-        (_ref.current.scale.x =
-          typeof scales[actionIndex][0] === "function"
-            ? scales[actionIndex][0](_returned, _options.functionScope)
-            : scales[actionIndex][0]);
-      scales[actionIndex][1] &&
-        (_ref.current.scale.y =
-          typeof scales[actionIndex][1] === "function"
-            ? scales[actionIndex][1](_returned, _options.functionScope)
-            : scales[actionIndex][1]);
-      scales[actionIndex][2] &&
-        (_ref.current.scale.z =
-          typeof scales[actionIndex][2] === "function"
-            ? scales[actionIndex][2](_returned, _options.functionScope)
-            : scales[actionIndex][2]);
+      if (typeof scales[actionIndex] === "function") {
+        _ref.current.scale.x = scales[actionIndex](
+          _returned,
+          _options.functionScope,
+        )[0];
+        _ref.current.scale.y = scales[actionIndex](
+          _returned,
+          _options.functionScope,
+        )[1];
+        _ref.current.scale.z = scales[actionIndex](
+          _returned,
+          _options.functionScope,
+        )[2];
+      } else {
+        if (
+          typeof scales[actionIndex][0] != "undefined" &&
+          scales[actionIndex][0] != null
+        )
+          _ref.current.scale.x = scales[actionIndex][0];
+        if (
+          typeof scales[actionIndex][1] != "undefined" &&
+          scales[actionIndex][1] != null
+        )
+          _ref.current.scale.y = scales[actionIndex][0];
+        if (
+          typeof scales[actionIndex][2] != "undefined" &&
+          scales[actionIndex][2] != null
+        )
+          _ref.current.scale.z = scales[actionIndex][0];
+      }
     }
     if (fovs && fovs[actionIndex]) {
       _camera.fov =
