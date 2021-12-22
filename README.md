@@ -32,7 +32,7 @@ You can use a hook for each object you need to change, enabling you to encapsula
 
 ## Requirements
 
-- Please ensure that your camera's world direction is (0, 0, 1), i.e., it should point toward the world's z-axis. If the camera and world have the same coordinate system, there is no need for projection calculations in the x and y direction. You can translate your camera along the z-axis with no issue, i.e. your camera's position (0, 0, z) can take any value for z.
+- Please ensure that your camera's world direction is (0, 0, 1), i.e., it should point toward the world's z-axis. If the camera and world have the same coordinate system, there is no need for projection calculations in the x and y direction. You can translate your camera along the z-axis with no issue, i.e. your camera's position `(0, 0, z)` can take any value for z.
 
 - Your camera aspect must be already respond to canvas element size changes. `react-three-fiber` sets this up out of the box.
 
@@ -188,7 +188,7 @@ An object containing the following properties:
 
 ---
 
-**breakpoints** | Array | Required
+**breakpoints** | Array | **Required**
 
 An array of Numbers specifying the breakpoints at which changes should apply. For example, `[0.5, 1]` specifies three distinct aspect ratio ranges, depending on the value of `useMin`.
 
@@ -206,6 +206,61 @@ If `useMin` is `false`, you should specify changes for the following aspect rang
 
 ---
 
+**useMin** | Boolean | Optional (Default: `false`)
+
+A Boolean that determines whether the defined breakpoints are minimum-aspect breakpoints (`useMin` is `true`) or maximum-aspect breakpoints (`useMin` is `false` -- the default);
+
+See the `breakpoints` description to see an example of how `useMin` can change the aspect point ranges.
+
+---
+
+**funcScope** | Object | Optional
+
+An object containing properties to which you need access in your callback functions. All callback functions can take two parameters:
+
+```js
+const callback = (info, scope) => {};
+```
+
+`info` is the same object returned by `useResizeHelper`. `scope` is the object defined here.
+
+---
+
+**setFunc** | Array | Optional
+
+An array of functions whose length is the same as `breakpoints.length + 1`. It defines callback functions to be run at each aspect range. The functions can use the parameters `info`, the same object that is returned from `useResizeHelper`, and `scope`, the object defined in `funcScope`:
+
+```js
+(info, scope) => {
+  //your changes here
+};
+```
+
+If `null`, no function will be called at this aspect range.
+
+**NOTE: functions of `setFunc` run after the changes made by the convenience properties `positions`, `rotations`, `scales`, `fovs`, and `camZs`.**
+
+Example usage:
+
+```js
+const options = {
+  breakpoints: [0, 1],
+  setFunc: [
+    () => {
+      camera.position.z = 0;
+      camera.position.x = 0;
+    },
+    (info, scope) => {
+      camera.position.x = -info.visWidth / 2;
+      scope.ref.current.position.x = 0;
+    },
+    null,
+  ],
+};
+```
+
+---
+
 **positions** | Array | Optional
 
 A convenience property. An array containing the positional changes to be made to the object at `ref.current` at the specified breakpoints. The length of this array should be greater than the `breakpoints` array by a value of one, since `n` breakpoints specify `n + 1` aspect ranges.
@@ -214,9 +269,17 @@ The members of this array can be one of the following:
 
 - An array of x-, y-, and z-coordinate positional values to be applied to the object at `ref.current`.
 
-For example, `[0.5, 2, 1]` would change the position of the object to `(0.5, 2, 1)` at the aspect range it is specified for. You can use `null` in any of the coordinates if you don't wish to make any changes to it at that breakpoint.
+For example, `[0.5, 2, 1]` would change the position of the object to `(0.5, 2, 1)` at the aspect range it is specified for. It is no different than the following snippet:
 
-- A function `(info, scope) => [x, y, z]` returning an array like the one described above. The function takes two parameters: `info`, an object with the same properties as those returned by `useResizeHelper`, and `scope`, the object optionally defined in `setFunc` (see below for more info).
+```js
+ref.current.position.x = 0.5;
+ref.current.position.y = 0.2;
+ref.current.position.z = 1;
+```
+
+You can use `null` in any of the coordinates if you don't wish to make any changes to it at that breakpoint.
+
+- A function `(info, scope) => [x, y, z]` returning an array like the one described above. The function takes two parameters: `info`, an object with the same properties as those returned by `useResizeHelper`, and `scope`, the object optionally defined in `setFunc` (see above for more info).
 
 - `null`, if no positional changes should be made at this breakpoint.
 
@@ -233,3 +296,43 @@ const options = {
 Since `useMin` is `true`, the above snippet will place the object at the point `(0, 0, 0)` at the aspect range [0, 1) and at the point `(info.visWidth * 0.25, 0, 0)` at the aspect range `[1, Infinity).`
 
 ---
+
+**rotations** | Array | Optional
+
+The same as `positions` but instead of positional changes, it specifies rotational changes.
+
+Note: the units for positional rotations are radians.
+
+---
+
+**scales** | Array | Optional
+
+The same as `positions` but instead of positional changes, it specifies scale factors for each axis.
+
+---
+
+**fovs** | Array | Optional
+
+The same as `positions` but instead of positional changes, it specifies camera `fov` at each breakpoint.
+
+Since the fov is one Number, the members of this area can either be a Number or a function returning a Number.
+
+Example usage:
+
+```js
+const options = {
+  breakpoints: [0.5, 1],
+  fovs: [50, 60, (info) => (info.visWidth > 20 ? 60 : 50)],
+  useMin: true,
+};
+```
+
+---
+
+**camZs** | Array | Optional
+
+The same as `fovs` but instead of fov value changes, it specifies changes to camera position along the axis (since the camera is required to be at `(0, 0, z)`.
+
+## Test Server CLI
+
+Coming soon.
