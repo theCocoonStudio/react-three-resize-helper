@@ -42,6 +42,7 @@ const $9c25e1fa1df40573$var$handleResize = (ref, options, camera) => {
     objMax: _size.max,
     visWidth: _width,
     visHeight: _height,
+    aspect: _camera.aspect,
   };
   // end calculation
   const _aspect = _camera.aspect;
@@ -54,6 +55,7 @@ const $9c25e1fa1df40573$var$handleResize = (ref, options, camera) => {
       fovs: fovs,
       camZs: camZs,
       useMin: useMin,
+      setFunc: setFunc,
     } = _options;
     //basic validation
     if (!Array.isArray(breakpoints))
@@ -122,12 +124,12 @@ const $9c25e1fa1df40573$var$handleResize = (ref, options, camera) => {
           typeof positions[actionIndex][1] != "undefined" &&
           positions[actionIndex][1] != null
         )
-          _ref.current.position.y = positions[actionIndex][0];
+          _ref.current.position.y = positions[actionIndex][1];
         if (
           typeof positions[actionIndex][2] != "undefined" &&
           positions[actionIndex][2] != null
         )
-          _ref.current.position.z = positions[actionIndex][0];
+          _ref.current.position.z = positions[actionIndex][2];
       }
     }
     if (rotations && rotations[actionIndex]) {
@@ -146,12 +148,12 @@ const $9c25e1fa1df40573$var$handleResize = (ref, options, camera) => {
           typeof rotations[actionIndex][1] != "undefined" &&
           rotations[actionIndex][1] != null
         )
-          _ref.current.rotation.y = rotations[actionIndex][0];
+          _ref.current.rotation.y = rotations[actionIndex][1];
         if (
           typeof rotations[actionIndex][2] != "undefined" &&
           rotations[actionIndex][2] != null
         )
-          _ref.current.rotation.z = rotations[actionIndex][0];
+          _ref.current.rotation.z = rotations[actionIndex][2];
       }
     }
     if (scales && scales[actionIndex]) {
@@ -170,12 +172,12 @@ const $9c25e1fa1df40573$var$handleResize = (ref, options, camera) => {
           typeof scales[actionIndex][1] != "undefined" &&
           scales[actionIndex][1] != null
         )
-          _ref.current.scale.y = scales[actionIndex][0];
+          _ref.current.scale.y = scales[actionIndex][1];
         if (
           typeof scales[actionIndex][2] != "undefined" &&
           scales[actionIndex][2] != null
         )
-          _ref.current.scale.z = scales[actionIndex][0];
+          _ref.current.scale.z = scales[actionIndex][2];
       }
     }
     if (fovs && fovs[actionIndex]) {
@@ -192,6 +194,7 @@ const $9c25e1fa1df40573$var$handleResize = (ref, options, camera) => {
           : camZs[actionIndex];
       _camera.updateProjectionMatrix();
     }
+    setFunc && setFunc(_returned, _options.functionScope);
   }
   return _returned;
 };
