@@ -18,13 +18,22 @@ const handleResize = (ref, options, camera) => {
     objMax: _size.max,
     visWidth: _width,
     visHeight: _height,
+    aspect: _camera.aspect,
   };
   // end calculation
 
   const _aspect = _camera.aspect;
   if (_options) {
-    let { breakpoints, positions, rotations, scales, fovs, camZs, useMin } =
-      _options;
+    let {
+      breakpoints,
+      positions,
+      rotations,
+      scales,
+      fovs,
+      camZs,
+      useMin,
+      setFunc,
+    } = _options;
 
     //basic validation
     if (!Array.isArray(breakpoints)) {
@@ -182,6 +191,8 @@ const handleResize = (ref, options, camera) => {
           : camZs[actionIndex];
       _camera.updateProjectionMatrix();
     }
+
+    setFunc && setFunc(_returned, _options.functionScope);
   }
   return _returned;
 };
