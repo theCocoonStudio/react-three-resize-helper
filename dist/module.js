@@ -194,7 +194,8 @@ const $9c25e1fa1df40573$var$handleResize = (ref, options, camera) => {
           : camZs[actionIndex];
       _camera.updateProjectionMatrix();
     }
-    setFunc && setFunc(_returned, _options.functionScope);
+    if (setFunc && setFunc[actionIndex])
+      setFunc[actionIndex](_returned, _options.functionScope);
   }
   return _returned;
 };
