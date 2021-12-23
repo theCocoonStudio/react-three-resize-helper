@@ -269,6 +269,7 @@ Example usage:
 
 ```js
 const options = {
+  funcScope: { ref },
   breakpoints: [0, 1],
   setFunc: [
     () => {
