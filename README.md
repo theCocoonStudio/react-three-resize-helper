@@ -139,7 +139,7 @@ const threeComponent = () => {
 };
 ```
 
-The snippet above positions one object in the scene relative to another object's position. It uses `useResizeHelper` to declare two aspect breakpoints. Using `useMin: true`, tells the hook these are minimum aspect breakpoints, like CSS `min-width` breakpoints.
+The snippet above positions one object in the scene relative to another object's position. It uses `useResizeHelper` to declare two aspect breakpoints. Using `useMin: true` tells the hook these are minimum aspect breakpoints, like CSS `min-width` breakpoints.
 
 The breakpoints array of length n defines n + 1 aspect ranges. In this case, there are three ranges: aspects below 0.474, aspects equal to or above 0.474, and aspects equal to or above 0.778. Whatever changes we put in the `positions` object will be applied at these three ranges, respectively.
 
