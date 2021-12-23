@@ -41,7 +41,7 @@ const threeComponent = () => {
 };
 ```
 
-The snippet above is a max-aspect breakpoint like a css `max-width` breakpoint. There are two ranges defined by it: aspects with a max width of 1, and aspects with width greater than one. At the former as range, the hook sets the 3D objects's position at `(0, 0, 0)`. At the latter range, the hook sets the object's position to `(10, 10, 10)`;
+The snippet above defines a max-aspect breakpoint like a css `max-width` breakpoint. There are two ranges defined by it: aspects with a max width of 1, and aspects with width greater than one. At the former as range, the hook sets the 3D objects's position at `(0, 0, 0)`. At the latter range, the hook sets the object's position to `(10, 10, 10)`;
 
 Does this code look funny? Check out [`react-three-fiber`](https://github.com/pmndrs/react-three-fiber).
 
