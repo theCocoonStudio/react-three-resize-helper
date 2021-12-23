@@ -30,9 +30,24 @@ Changes to the canvas size will cause a re-render as the hook will run again and
 
 You can use a hook for each object you need to change, enabling you to encapsulate the design into the component like you would with CSS-in-JS.
 
+Example:
+
+```js
+const threeComponent = () => {
+  const options = {breakpoints: [1], positions: [[0, 0, 0], [10, 10, 10]];}
+  const ref = React.usRef();
+  const data = useResizeHelper(ref, camera, optoins);
+  return <myThreeComponent ref={ref} />;
+};
+```
+
+The snippet above a max-aspect breakpoint like a css `max-width` breakpoint. There are two ranges defined by it: aspects with a max width of 1, and aspects with width greater than one. At the former as range, the hook sets the 3D objects's position at `(0, 0, 0)`. At the latter range, the hook sets the object's position to `(10, 10, 10)`;
+
+Does this code look funny? Check out [`react-three-fiber`](https://github.com/pmndrs/react-three-fiber).
+
 ## Requirements
 
-- Please ensure that your camera's world direction is (0, 0, 1), i.e., it should point toward the world's z-axis. If the camera and world have the same coordinate system, there is no need for projection calculations in the x and y direction. You can translate your camera along the z-axis with no issue, i.e. your camera's position `(0, 0, z)` can take any value for z.
+- Please ensure that your camera's world direction is `(0, 0, 1)`, i.e., it should point toward the world's z-axis. If the camera and world have the same coordinate system, there is no need for projection calculations in the x and y direction. You can translate your camera along the z-axis with no issue, i.e. your camera's position `(0, 0, z)` can take any value for z.
 
 - Your camera aspect must be already respond to canvas element size changes. `react-three-fiber` sets this up out of the box.
 
@@ -74,6 +89,8 @@ const threeComponent = () => {
 ```
 
 The object above will always be placed three quarters to the left of the screen and aligned at the top of the canvas.
+
+FIGURE
 
 ### Repsonsively changing the scene to different aspect ratios
 
@@ -122,11 +139,11 @@ const threeComponent = () => {
 };
 ```
 
-The snippet above positions one object in the scene relative to another objects; position. It uses `useResizeHelper` to declare two aspect breakpoints for some part of a scene. Using `useMin: true`, tells the hook these are minimum aspect breakpoints.
+The snippet above positions one object in the scene relative to another object's position. It uses `useResizeHelper` to declare two aspect breakpoints. Using `useMin: true`, tells the hook these are minimum aspect breakpoints, like CSS `min-width` breakpoints.
 
-We always need one more change than the number of breakpoints. In this case, we need three: one for aspects below 0.474, aspects equal to or above 0.474, and aspects equal to or above 0.778. Whatever changes we put in the `positions` object will be applies at these three ranges.
+The breakpoints array of length n defines n + 1 aspect ranges. In this case, there are three ranges: aspects below 0.474, aspects equal to or above 0.474, and aspects equal to or above 0.778. Whatever changes we put in the `positions` object will be applied at these three ranges, respectively.
 
-If we were to use maximum aspect breakpoints in snippet case above, we'd need a change for aspects equal to 0.474 or lower, aspects above 0.474 but lower than 0.778, and for aspects above 0.778.
+If we were to use maximum aspect breakpoints in the snippet above, the ranges to apply the changes would be for aspects equal to 0.474 or lower, aspects above 0.474 but lower than 0.778, and for aspects above 0.778.
 
 **Note: unlike with CSS, there is no cascading of styles. You should explicitly set your changes for each range depending on your breakpoints and whether `useMin` is `true` or `false`.**
 
@@ -164,6 +181,12 @@ No different than:
 new THREE.Box3().setFromObject(ref.current).min;
 ```
 
+and
+
+```js
+new THREE.Box3().setFromObject(ref.current).max;
+```
+
 - **visWidth**: Number, **visHeight**: Number
 
 The width and height, in three.js world units, of the visible plane at the object's position relative to the camera.
@@ -176,7 +199,7 @@ The center will always be at point `(0, 0)` provided that the camera is position
 
 1. **ref** | React Ref | Required
 
-A ref to an `Object3D` or other three.js 3D component. `useResizeHelper` uses this object's z-coordinate to calculate the visible width and height at the object's position. These numbers are returned by the hook.
+A ref to an `Object3D` or other three.js 3D component. `useResizeHelper` uses this object's z-coordinate to calculate the visible width and height at the object's position. These numbers are returned by the hook. You can use properties in `options` to change properties of this object.
 
 2. **camera** | THREE.PerspectiveCamera | Required
 
@@ -293,7 +316,7 @@ const options = {
 };
 ```
 
-Since `useMin` is `true`, the above snippet will place the object at the point `(0, 0, 0)` at the aspect range [0, 1) and at the point `(info.visWidth * 0.25, 0, 0)` at the aspect range `[1, Infinity).`
+Since `useMin` is `true`, the above snippet will place the object at the point `(0, 0, 0)` at the aspect range `[0, 1)` and at the point `(info.visWidth * 0.25, 0, 0)` at the aspect range `[1, Infinity).`
 
 ---
 
@@ -315,7 +338,7 @@ The same as `positions` but instead of positional changes, it specifies scale fa
 
 The same as `positions` but instead of positional changes, it specifies camera `fov` at each breakpoint.
 
-Since the fov is one Number, the members of this area can either be a Number or a function returning a Number.
+Since the fov is one Number, the members of this array can either be a Number or a function returning a Number.
 
 Example usage:
 
