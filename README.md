@@ -293,7 +293,7 @@ A convenience property. An array containing the positional changes to be made to
 
 The members of this array can be one of the following:
 
-- An array of x-, y-, and z-coordinate positional values to be applied to the object at `ref.current`.
+1. An array of x-, y-, and z-coordinate positional values to be applied to the object at `ref.current`.
 
 For example, `[0.5, 2, 1]` would change the position of the object to `(0.5, 2, 1)` at the aspect range it is specified for. It is no different than the following snippet:
 
@@ -305,9 +305,9 @@ ref.current.position.z = 1;
 
 You can use `null` in any of the coordinates if you don't wish to make any changes to it at that breakpoint.
 
-- A function `(info, scope) => [x, y, z]` returning an array like the one described above. The function takes two parameters: `info`, an object with the same properties as those returned by `useResizeHelper`, and `scope`, the object optionally defined in `setFunc` (see above for more info).
+2. A function `(info, scope) => [x, y, z]` returning an array like the one described above. The function takes two parameters: `info`, an object with the same properties as those returned by `useResizeHelper`, and `scope`, the object optionally defined in `setFunc` (see above for more info).
 
-- `null`, if no positional changes should be made at this breakpoint.
+3. `null`, if no positional changes should be made at this breakpoint.
 
 Example usage:
 
