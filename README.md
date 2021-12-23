@@ -193,7 +193,9 @@ The width and height, in three.js world units, of the visible plane at the objec
 
 FIGURE
 
-The center will always be at point `(0, 0)` provided that the camera is positioned as required above. `(-visWidth / 2, visHeight)`, for example, is at the bottom left corner of the canavas.
+The center will always be at point `(0, 0)` provided that the camera is positioned as required above.
+
+`(-visWidth / 2, visHeight)`, for example, is at the bottom left corner of the canvas.
 
 ### Parameters
 
