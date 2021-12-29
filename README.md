@@ -78,11 +78,11 @@ import { useResizeHelper } from "react-three-resize-helper";
 You can declaratively set properties of your 3D objects, especially if you use a three.js React component framework like `react-three-fiber`.
 
 ```js
-const threeComponent = () => {
+const myThreeComponent = () => {
   const ref = React.usRef();
   const data = useResizeHelper(ref, camera);
   return (
-    <myThreeComponent
+    <threeComponent
       ref={ref}
       position={[data.visWidth * 0.25, data.visHeight / 2, 10]}
     />
