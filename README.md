@@ -36,7 +36,7 @@ Example:
 const threeComponent = () => {
   const options = {breakpoints: [1], positions: [[0, 0, 0], [10, 10, 10]];}
   const ref = React.usRef();
-  useResizeHelper(ref, camera, optoins);
+  useResizeHelper(ref, camera, options);
   return <myThreeComponent ref={ref} />;
 };
 ```
@@ -82,7 +82,7 @@ const threeComponent = () => {
   return (
     <myThreeComponent
       ref={ref}
-      position={[data.visWidth * 0.25, -data.visHeight / 2, 10]}
+      position={[data.visWidth * 0.25, data.visHeight / 2, 10]}
     />
   );
 };
@@ -195,7 +195,7 @@ FIGURE
 
 The center will always be at point `(0, 0)` provided that the camera is positioned as required above.
 
-`(-visWidth / 2, visHeight)`, for example, is at the bottom left corner of the canvas.
+`(-visWidth / 2, - visHeight / 2)`, for example, is at the bottom left corner of the canvas.
 
 ### Parameters
 
