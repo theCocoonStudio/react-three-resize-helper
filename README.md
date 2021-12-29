@@ -198,7 +198,7 @@ new THREE.Box3().setFromObject(ref.current).max;
 The width and height, in three.js world units, of the visible plane at the object's position relative to the camera.
 
 <div align="center">
-  <img width="500" heigth="249" src="./public/repo-1.jpg">
+  <img width="500" heigth="249" src="./public/repo-3.jpg">
 </div>
 
 The center will always be at point `(0, 0)` provided that the camera is positioned as required above.
