@@ -209,7 +209,7 @@ The center will always be at point `(0, 0)` provided that the camera is position
 
 1. **ref** | React Ref | Required
 
-A ref to an `Object3D` or other three.js 3D component. `useResizeHelper` uses this object's z-coordinate to calculate the visible width and height at the object's position. These numbers are returned by the hook. You can use properties in `options` to change properties of this object.
+A ref to an `Object3D` or other three.js 3D component. `useResizeHelper` uses this object's z-coordinate to calculate the visible width and height at the object's position. These numbers are returned by the hook. You can use properties in `options` to change properties of this object responsivley.
 
 2. **camera** | THREE.PerspectiveCamera | Required
 
