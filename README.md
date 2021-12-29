@@ -51,7 +51,9 @@ Does this code look funny? Check out [`react-three-fiber`](https://github.com/pm
 
 - Your camera aspect must be already respond to canvas element size changes. `react-three-fiber` sets this up out of the box.
 
-FIGURE
+<div align="center">
+  <img width="500" heigth="249" src="./public/repo-2.jpg">
+</div>
 
 ## Getting Started
 
@@ -90,7 +92,9 @@ const threeComponent = () => {
 
 The object above will always be placed three quarters to the left of the screen and aligned at the top of the canvas.
 
-FIGURE
+<div align="center">
+  <img width="500" heigth="249" src="./public/repo-3.jpg">
+</div>
 
 ### Repsonsively changing the scene to different aspect ratios
 
@@ -191,7 +195,9 @@ new THREE.Box3().setFromObject(ref.current).max;
 
 The width and height, in three.js world units, of the visible plane at the object's position relative to the camera.
 
-FIGURE
+<div align="center">
+  <img width="500" heigth="249" src="./public/repo-1.jpg">
+</div>
 
 The center will always be at point `(0, 0)` provided that the camera is positioned as required above.
 
