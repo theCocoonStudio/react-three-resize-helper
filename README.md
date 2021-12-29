@@ -18,7 +18,7 @@ Just like in regular responsive web design, the goal in responsive 3D design is 
 
 Because the three.js camera is defined with a vertical fov, the scene will always show the same thing in the vertical axis. This is different from traditional design with markdown and stylesheets that is based on vertical overflows and scroll.
 
-For this reason, aspect breakpoints are better suited for these purpose.
+For this reason, aspect breakpoints are better suited for these purposes.
 
 See [here](https://www.izzyerlich.com/blog/responsive-3d-design) for background information.
 
@@ -33,11 +33,11 @@ You can use a hook for each object you need to change, enabling you to encapsula
 Example:
 
 ```js
-const threeComponent = () => {
+const myThreeComponent = () => {
   const options = {breakpoints: [1], positions: [[0, 0, 0], [10, 10, 10]];}
   const ref = React.usRef();
   useResizeHelper(ref, camera, options);
-  return <myThreeComponent ref={ref} />;
+  return <threeComponent ref={ref} />;
 };
 ```
 
@@ -52,7 +52,7 @@ Does this code look funny? Check out [`react-three-fiber`](https://github.com/pm
 - Your camera aspect must be already respond to canvas element size changes. `react-three-fiber` sets this up out of the box.
 
 <div align="center">
-  <img width="500" heigth="249" src="./public/repo-2.jpg">
+  <img width="500" heigth="249" src="./public/repo-1.jpg">
 </div>
 
 ## Getting Started
