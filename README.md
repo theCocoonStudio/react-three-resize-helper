@@ -81,10 +81,11 @@ You can declaratively set properties of your 3D objects, especially if you use a
 const myThreeComponent = () => {
   const ref = React.usRef();
   const data = useResizeHelper(ref, camera);
+  /* in this case, z = 10 */
   return (
     <threeComponent
       ref={ref}
-      {/* in this case, z = 10 */}
+
       position={[data.visWidth * 0.25, data.visHeight / 2, 10]
     />
   );
