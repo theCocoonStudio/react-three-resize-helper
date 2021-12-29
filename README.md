@@ -103,7 +103,7 @@ The object above will always be placed three quarters to the left of the screen 
 You can use the hook to change objects of the scene at different aspect ratio breakpoints.
 
 ```js
-const threeComponent = () => {
+const myThreeComponent = () => {
   const ref = React.usRef();
   const otherRef = React.useRef();
 
