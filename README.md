@@ -49,7 +49,7 @@ Does this code look funny? Check out [`react-three-fiber`](https://github.com/pm
 
 - Please ensure that your camera's world direction is `(0, 0, 1)`, i.e., it should point toward the world's z-axis. If the camera and world have the same coordinate system, there is no need for projection calculations in the x and y direction. You can translate your camera along the z-axis with no issue, i.e. your camera's position `(0, 0, z)` can take any value for z.
 
-- Your camera aspect must be already respond to canvas element size changes. `react-three-fiber` sets this up out of the box.
+- Your camera aspect must already respond to canvas element size changes. `react-three-fiber` sets this up out of the box.
 
 <div align="center">
   <img width="500" heigth="249" src="./public/repo-1.jpg">
