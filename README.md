@@ -219,8 +219,6 @@ A reference to the three.js perspective camera that your scene uses.
 
 An object containing the following properties:
 
----
-
 **breakpoints** | Array | **Required**
 
 An array of Numbers specifying the breakpoints at which changes should apply. For example, `[0.5, 1]` specifies three distinct aspect ratio ranges, depending on the value of `useMin`.
