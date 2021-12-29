@@ -95,7 +95,7 @@ const myThreeComponent = () => {
 The object above will always be placed three quarters to the left of the screen and aligned at the top of the canvas.
 
 <div align="center">
-  <img width="500" heigth="249" src="./public/repo-3.jpg">
+  <img width="500" heigth="249" src="./public/repo-2.jpg">
 </div>
 
 ### Repsonsively changing the scene to different aspect ratios
