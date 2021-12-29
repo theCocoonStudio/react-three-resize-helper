@@ -153,7 +153,7 @@ If we were to use maximum aspect breakpoints in the snippet above, the ranges to
 
 **Note: unlike with CSS, there is no cascading of styles. You should explicitly set your changes for each range depending on your breakpoints and whether `useMin` is `true` or `false`.**
 
-In the snippet above, the callback for the current range calculates the required position and returns a point in the form of an array containing the x, y, and z values, respectively. It uses a reference to another object because it is calculating position for one object based on another object's position.
+In the snippet above, the callback for the current aspect calculates the required position and returns a point in the form of an array containing the x, y, and z values, respectively. It uses a reference to another object because it is calculating position for one object based on another object's position.
 
 Instead of a callback, we could have entered an array with some value or expression for each of the axes:
 
