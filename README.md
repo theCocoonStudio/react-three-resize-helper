@@ -84,7 +84,8 @@ const myThreeComponent = () => {
   return (
     <threeComponent
       ref={ref}
-      position={[data.visWidth * 0.25, data.visHeight / 2, 10]}
+      {/* in this case, z = 10 */}
+      position={[data.visWidth * 0.25, data.visHeight / 2, 10]
     />
   );
 };
