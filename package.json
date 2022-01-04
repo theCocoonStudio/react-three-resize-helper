@@ -1,6 +1,6 @@
 {
   "name": "react-three-resize-helper",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "A React hook for responsive design with three.js and react-three-fiber",
   "scripts": {
     "test": "jest",

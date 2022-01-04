@@ -85,7 +85,6 @@ const myThreeComponent = () => {
   return (
     <threeComponent
       ref={ref}
-
       position={[data.visWidth * 0.25, data.visHeight / 2, 10]
     />
   );
@@ -112,23 +111,23 @@ const myThreeComponent = () => {
     positions: [
       [
         (info, scope) => [
-          otherRef.position.x + 5,
-          otherRef.position.y,
-          otherRef.position.z,
+          scope.otherRef.position.x + 5,
+          scope.otherRef.position.y,
+          scope.otherRef.position.z,
         ],
       ],
       [
         (info, scope) => [
-          otherRef.position.x + 3,
-          otherRef.position.y,
-          otherRef.position.z,
+          scope.otherRef.position.x + 3,
+          scope.otherRef.position.y,
+          scope.otherRef.position.z,
         ],
       ],
       [
         (info, scope) => [
-          otherRef.position.x + 1,
-          otherRef.position.y,
-          otherRef.position.z,
+          scope.otherRef.position.x + 1,
+          scope.otherRef.position.y,
+          scope.otherRef.position.z,
         ],
       ],
     ],
@@ -245,7 +244,7 @@ See the `breakpoints` description to see an example of how `useMin` can change t
 
 ---
 
-**funcScope** | Object | Optional
+**functionScope** | Object | Optional
 
 An object containing properties to which you need access in your callback functions. All callback functions can take two parameters:
 
@@ -259,7 +258,7 @@ const callback = (info, scope) => {};
 
 **setFunc** | Array | Optional
 
-An array of functions whose length is the same as `breakpoints.length + 1`. It defines callback functions to be run at each aspect range. The functions can use the parameters `info`, the same object that is returned from `useResizeHelper`, and `scope`, the object defined in `funcScope`:
+An array of functions whose length is the same as `breakpoints.length + 1`. It defines callback functions to be run at each aspect range. The functions can use the parameters `info`, the same object that is returned from `useResizeHelper`, and `scope`, the object defined in `functionScope`:
 
 ```js
 (info, scope) => {
@@ -275,7 +274,7 @@ Example usage:
 
 ```js
 const options = {
-  funcScope: { ref },
+  functionScope: { ref },
   breakpoints: [0, 1],
   setFunc: [
     () => {
