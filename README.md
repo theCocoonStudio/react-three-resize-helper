@@ -10,7 +10,7 @@ Make your scene adjustments based on position and size data provided by `useResi
 
 ## Motivation
 
-3D scenes and apps like games are often built for a set aspect ratio. When it comes to integrating 3D designs in regular websites, it becomes much more likely for the canvas to take on different aspect ratios, e.g. if the canvas is fixed to the viepowrt dimensions.
+3D scenes and apps like games are often built for a set aspect ratio. When it comes to integrating 3D designs in regular websites, it becomes much more likely for the canvas to take on different aspect ratios, e.g. if the canvas is fixed to the viewport dimensions.
 
 If a scene is only designed for a single aspect ratio, 3D elements in the scene could be cut off, sized in an undesirable way, or be positioned poorly when the aspect changes.
 
