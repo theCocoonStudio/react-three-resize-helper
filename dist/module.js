@@ -200,10 +200,16 @@ const $9c25e1fa1df40573$var$handleResize = (ref, options, camera) => {
   return _returned;
 };
 const $9c25e1fa1df40573$export$bd0a946f6f3d2bb1 = (ref, camera, options) => {
-  let [dimensions, setDimensions] = (0, $aODKb$useState)(null);
+  let [dimensions, setDimensions] = (0, $aODKb$useState)({
+    objMin: null,
+    objMax: null,
+    visWidth: null,
+    visHeight: null,
+    aspect: null,
+  });
   (0, $aODKb$useEffect)(() => {
     setDimensions($9c25e1fa1df40573$var$handleResize(ref, options, camera));
-  }, [camera.aspect, ref, camera, ref.current]);
+  }, [camera.aspect, ref, camera, options]);
   return dimensions;
 };
 

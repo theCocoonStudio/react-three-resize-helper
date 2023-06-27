@@ -200,11 +200,17 @@ const handleResize = (ref, options, camera) => {
 };
 
 export const useResizeHelper = (ref, camera, options) => {
-  let [dimensions, setDimensions] = useState(null);
+  let [dimensions, setDimensions] = useState({
+    objMin: null,
+    objMax: null,
+    visWidth: null,
+    visHeight: null,
+    aspect: null,
+  });
 
   useEffect(() => {
     setDimensions(handleResize(ref, options, camera));
-  }, [camera.aspect, ref, camera, ref.current]);
+  }, [camera.aspect, ref, camera, options]);
 
   return dimensions;
 };

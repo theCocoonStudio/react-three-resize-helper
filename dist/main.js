@@ -196,10 +196,16 @@ const $b7719124d414b576$var$handleResize = (ref, options, camera) => {
   return _returned;
 };
 const $b7719124d414b576$export$bd0a946f6f3d2bb1 = (ref, camera, options) => {
-  let [dimensions, setDimensions] = (0, $7Db8t$react.useState)(null);
+  let [dimensions, setDimensions] = (0, $7Db8t$react.useState)({
+    objMin: null,
+    objMax: null,
+    visWidth: null,
+    visHeight: null,
+    aspect: null,
+  });
   (0, $7Db8t$react.useEffect)(() => {
     setDimensions($b7719124d414b576$var$handleResize(ref, options, camera));
-  }, [camera.aspect, ref, camera, ref.current]);
+  }, [camera.aspect, ref, camera, options]);
   return dimensions;
 };
 
