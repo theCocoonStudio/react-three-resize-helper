@@ -1,4 +1,3 @@
-var $7Db8t$swchelpers = require("@swc/helpers");
 var $7Db8t$react = require("react");
 var $7Db8t$three = require("three");
 
@@ -22,19 +21,19 @@ $parcel$export(
   },
 );
 
-var $b7719124d414b576$var$handleResize = function (ref, options, camera) {
-  var _ref = ref;
-  var _options = options;
-  var _camera = camera;
+const $b7719124d414b576$var$handleResize = (ref, options, camera) => {
+  const _ref = ref;
+  const _options = options;
+  const _camera = camera;
   //calculate returned objected
-  var _size = new $7Db8t$three.Box3().setFromObject(_ref.current);
-  var _vFOV = $7Db8t$three.MathUtils.degToRad(_camera.fov);
-  var _height =
+  const _size = new (0, $7Db8t$three.Box3)().setFromObject(_ref.current);
+  const _vFOV = (0, $7Db8t$three.MathUtils).degToRad(_camera.fov);
+  const _height =
     2 *
     Math.tan(_vFOV / 2) *
     Math.abs(_ref.current.position.z - _camera.position.z); // visible height
-  var _width = _height * _camera.aspect;
-  var _returned = {
+  const _width = _height * _camera.aspect;
+  const _returned = {
     objMin: _size.min,
     objMax: _size.max,
     visWidth: _width,
@@ -42,16 +41,18 @@ var $b7719124d414b576$var$handleResize = function (ref, options, camera) {
     aspect: _camera.aspect,
   };
   // end calculation
-  var _aspect = _camera.aspect;
+  const _aspect = _camera.aspect;
   if (_options) {
-    var breakpoints = _options.breakpoints,
-      positions = _options.positions,
-      rotations = _options.rotations,
-      scales = _options.scales,
-      fovs = _options.fovs,
-      camZs = _options.camZs,
-      useMin = _options.useMin,
-      setFunc = _options.setFunc;
+    let {
+      breakpoints: breakpoints,
+      positions: positions,
+      rotations: rotations,
+      scales: scales,
+      fovs: fovs,
+      camZs: camZs,
+      useMin: useMin,
+      setFunc: setFunc,
+    } = _options;
     //basic validation
     if (!Array.isArray(breakpoints))
       throw new TypeError(
@@ -94,8 +95,8 @@ var $b7719124d414b576$var$handleResize = function (ref, options, camera) {
       _aspect,
     );
     breakpoints.sort();
-    var index = breakpoints.indexOf(_aspect);
-    /* find the array index for the changes to implement. Enforce correct breakpoints if aspect exactly matches a breakpoint */ var actionIndex =
+    const index = breakpoints.indexOf(_aspect);
+    /* find the array index for the changes to implement. Enforce correct breakpoints if aspect exactly matches a breakpoint */ let actionIndex =
       index;
     /*if usemin, if index is not last, check if entry is not equal to the next entry; if it is you have to use index + 1*/ if (
       useMin &&
@@ -105,7 +106,7 @@ var $b7719124d414b576$var$handleResize = function (ref, options, camera) {
         breakpoints[index] === breakpoints[index + 1] ? index + 1 : index;
     /* apply the changes */ if (positions && positions[actionIndex]) {
       if (typeof positions[actionIndex] === "function") {
-        var pos = positions[actionIndex](_returned, _options.functionScope);
+        const pos = positions[actionIndex](_returned, _options.functionScope);
         _ref.current.position.x = pos[0];
         _ref.current.position.y = pos[1];
         _ref.current.position.z = pos[2];
@@ -129,7 +130,7 @@ var $b7719124d414b576$var$handleResize = function (ref, options, camera) {
     }
     if (rotations && rotations[actionIndex]) {
       if (typeof rotations[actionIndex] === "function") {
-        var rot = rotations[actionIndex](_returned, _options.functionScope);
+        const rot = rotations[actionIndex](_returned, _options.functionScope);
         _ref.current.rotation.x = rot[0];
         _ref.current.rotation.y = rot[1];
         _ref.current.rotation.z = rot[2];
@@ -153,7 +154,7 @@ var $b7719124d414b576$var$handleResize = function (ref, options, camera) {
     }
     if (scales && scales[actionIndex]) {
       if (typeof scales[actionIndex] === "function") {
-        var sca = scales[actionIndex](_returned, _options.functionScope);
+        const sca = scales[actionIndex](_returned, _options.functionScope);
         _ref.current.scale.x = sca[0];
         _ref.current.scale.y = sca[1];
         _ref.current.scale.z = sca[2];
@@ -194,25 +195,16 @@ var $b7719124d414b576$var$handleResize = function (ref, options, camera) {
   }
   return _returned;
 };
-var $b7719124d414b576$export$bd0a946f6f3d2bb1 = function (
-  ref,
-  camera,
-  options,
-) {
-  var ref1 = $7Db8t$swchelpers.slicedToArray($7Db8t$react.useState(null), 2),
-    dimensions = ref1[0],
-    setDimensions = ref1[1];
-  $7Db8t$react.useEffect(
-    function () {
-      setDimensions($b7719124d414b576$var$handleResize(ref, options, camera));
-    },
-    [camera.aspect, ref, camera, ref.current],
-  );
+const $b7719124d414b576$export$bd0a946f6f3d2bb1 = (ref, camera, options) => {
+  let [dimensions, setDimensions] = (0, $7Db8t$react.useState)(null);
+  (0, $7Db8t$react.useEffect)(() => {
+    setDimensions($b7719124d414b576$var$handleResize(ref, options, camera));
+  }, [camera.aspect, ref, camera, ref.current]);
   return dimensions;
 };
 
 var $52fb57f2dc126ad4$export$bd0a946f6f3d2bb1;
 $52fb57f2dc126ad4$export$bd0a946f6f3d2bb1 =
-  $b7719124d414b576$export$bd0a946f6f3d2bb1;
+  (0, $b7719124d414b576$export$bd0a946f6f3d2bb1);
 
 //# sourceMappingURL=main.js.map

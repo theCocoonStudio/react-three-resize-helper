@@ -4,7 +4,7 @@
 
 A React hook for responsive design with three.js and react-three-fiber.
 
-with `useResizeHelper`, you can easily use canvas aspect breakpoints and add changes to your three.js scene that will automatically apply at those breakpoints.
+With `useResizeHelper`, you can easily use canvas aspect breakpoints and add changes to your three.js scene that will automatically apply at those breakpoints.
 
 Make your scene adjustments based on position and size data provided by `useResizeHelper`.
 

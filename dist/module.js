@@ -30,8 +30,8 @@ const $9c25e1fa1df40573$var$handleResize = (ref, options, camera) => {
   const _options = options;
   const _camera = camera;
   //calculate returned objected
-  const _size = new $aODKb$Box3().setFromObject(_ref.current);
-  const _vFOV = $aODKb$MathUtils.degToRad(_camera.fov);
+  const _size = new (0, $aODKb$Box3)().setFromObject(_ref.current);
+  const _vFOV = (0, $aODKb$MathUtils).degToRad(_camera.fov);
   const _height =
     2 *
     Math.tan(_vFOV / 2) *
@@ -200,8 +200,8 @@ const $9c25e1fa1df40573$var$handleResize = (ref, options, camera) => {
   return _returned;
 };
 const $9c25e1fa1df40573$export$bd0a946f6f3d2bb1 = (ref, camera, options) => {
-  let [dimensions, setDimensions] = $aODKb$useState(null);
-  $aODKb$useEffect(() => {
+  let [dimensions, setDimensions] = (0, $aODKb$useState)(null);
+  (0, $aODKb$useEffect)(() => {
     setDimensions($9c25e1fa1df40573$var$handleResize(ref, options, camera));
   }, [camera.aspect, ref, camera, ref.current]);
   return dimensions;
@@ -209,7 +209,7 @@ const $9c25e1fa1df40573$export$bd0a946f6f3d2bb1 = (ref, camera, options) => {
 
 var $393673603234b845$export$bd0a946f6f3d2bb1;
 $393673603234b845$export$bd0a946f6f3d2bb1 =
-  $9c25e1fa1df40573$export$bd0a946f6f3d2bb1;
+  (0, $9c25e1fa1df40573$export$bd0a946f6f3d2bb1);
 
 export {
   $393673603234b845$export$bd0a946f6f3d2bb1 as useResizeHelper,
